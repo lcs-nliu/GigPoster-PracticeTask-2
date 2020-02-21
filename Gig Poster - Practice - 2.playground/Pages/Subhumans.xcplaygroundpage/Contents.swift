@@ -85,19 +85,9 @@ canvas.drawCustomShape(with: verticesMid)
 
 }
 
-// Draw the horizontal lines of the grid to make it easier to make poster
-for x in stride (from: 0, to: 400, by: 50) {
-
-    canvas.drawLine(from: Point(x: x, y:0), to: Point(x:x, y:600))
-
-}
-
-// Vertical lines
-for y in stride (from: 0, to: 600, by: 50){
-    canvas.drawLine(from: Point(x: 0, y:y), to: Point(x:400, y:y))
-}
-
-
+// text
+canvas.textColor =  Color(hue: 100, saturation: 100, brightness: 0, alpha: 100)
+canvas.drawText(message: "subhumans", at: Point(x:10, y:325), size: 45)
 /*:
  ## Use Source Control
  

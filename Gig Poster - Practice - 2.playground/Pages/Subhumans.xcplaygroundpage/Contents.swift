@@ -22,17 +22,80 @@ import PlaygroundSupport
  
  Remember that you can refer to the [Canvas class documentation](https://www.russellgordon.ca/canvasgraphics/documentation/classes/canvas), as needed.
  */
-
-// Create a new canvas
-let canvas = Canvas(width: 400, height: 600)
-
 // COLORS
 let yellow = Color(hue: 45, saturation: 99, brightness: 100, alpha: 100)
 let purple = Color(hue: 304, saturation: 40, brightness: 64, alpha: 100)
 let brown = Color(hue: 38, saturation: 99, brightness: 38, alpha: 100)
 let lightRed = Color(hue: 10, saturation: 80, brightness: 80, alpha: 75)
 
-// Begin your solution here...
+// Create a new canvas and fill the background with yellow
+let canvas = Canvas(width: 400, height: 600)
+canvas.fillColor = Color(hue: 45, saturation: 99, brightness: 100, alpha: 100)
+canvas.drawRectangle(at: Point(x:0, y:0), width: 400, height: 600)
+
+// no borders
+canvas.drawShapesWithBorders = false
+
+// loop for first line of parallelograms
+for position in stride (from: -120, to: 430, by: 150) {
+    
+    switch position {
+    case -120:
+        canvas.fillColor = Color(hue: 38, saturation: 99, brightness: 38, alpha: 100)
+    case 30:
+        canvas.fillColor = Color(hue: 304, saturation: 40, brightness: 64, alpha: 100)
+        
+    case 180:
+        canvas.fillColor = Color(hue: 38, saturation: 99, brightness: 38, alpha: 100)
+
+    case 330:
+        canvas.fillColor = Color(hue: 304, saturation: 40, brightness: 64, alpha: 100)
+
+    default:
+        canvas.fillColor = Color(hue: 304, saturation: 40, brightness: 64, alpha: 100)
+
+    }
+    var vertices: [Point] = []
+    vertices.append(Point(x:position, y:50))
+    vertices.append(Point(x:position+140, y:50))
+    vertices.append(Point(x:position+190, y:150))
+    vertices.append(Point(x:position+50, y:150))
+    
+    canvas.drawCustomShape(with: vertices)
+    
+    var verticesTop: [Point] = []
+    verticesTop.append(Point(x:position, y:225))
+    verticesTop.append(Point(x:position+140, y:225))
+    verticesTop.append(Point(x:position+190, y:325))
+    verticesTop.append(Point(x:position+50, y:325))
+    
+    canvas.drawCustomShape(with: verticesTop)
+        
+}
+
+for red in stride (from: -120, to: 480, by: 150) {
+canvas.fillColor = Color(hue: 10, saturation: 80, brightness: 80, alpha: 75)
+var verticesMid: [Point] = []
+verticesMid.append(Point(x:red-10, y:140))
+verticesMid.append(Point(x:red+125, y:140))
+verticesMid.append(Point(x:red+175, y:240))
+verticesMid.append(Point(x:red+40, y:240))
+
+canvas.drawCustomShape(with: verticesMid)
+
+}
+
+// Draw the horizontal lines of the grid to make it easier to make poster
+for x in stride (from: 0, to: 400, by: 50) {
+
+    canvas.drawLine(from: Point(x: x, y:0), to: Point(x:x, y:600))
+
+}
+
+// Vertical lines
+for y in stride (from: 0, to: 600, by: 50){
+    canvas.drawLine(from: Point(x: 0, y:y), to: Point(x:400, y:y))
+}
 
 
 /*:

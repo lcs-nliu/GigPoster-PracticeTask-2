@@ -38,7 +38,7 @@ canvas.drawShapesWithBorders = false
 
 // loop for first line of parallelograms
 for position in stride (from: -120, to: 430, by: 150) {
-    
+    // switch statement to change the colour of parallelograms
     switch position {
     case -120:
         canvas.fillColor = Color(hue: 38, saturation: 99, brightness: 38, alpha: 100)
@@ -55,24 +55,30 @@ for position in stride (from: -120, to: 430, by: 150) {
         canvas.fillColor = Color(hue: 304, saturation: 40, brightness: 64, alpha: 100)
 
     }
+    
+    // vertices (coordinates) of the bottom parallelograms
     var vertices: [Point] = []
     vertices.append(Point(x:position, y:50))
     vertices.append(Point(x:position+140, y:50))
     vertices.append(Point(x:position+190, y:150))
     vertices.append(Point(x:position+50, y:150))
     
+    // draw the parallelograms
     canvas.drawCustomShape(with: vertices)
     
+    // vertices for the top parallelogram
     var verticesTop: [Point] = []
     verticesTop.append(Point(x:position, y:225))
     verticesTop.append(Point(x:position+140, y:225))
     verticesTop.append(Point(x:position+190, y:325))
     verticesTop.append(Point(x:position+50, y:325))
     
+    // draw the parallelograms
     canvas.drawCustomShape(with: verticesTop)
         
 }
 
+// draw the red parallelograms
 for red in stride (from: -120, to: 480, by: 150) {
 canvas.fillColor = Color(hue: 10, saturation: 80, brightness: 80, alpha: 75)
 var verticesMid: [Point] = []
@@ -81,13 +87,17 @@ verticesMid.append(Point(x:red+125, y:140))
 verticesMid.append(Point(x:red+175, y:240))
 verticesMid.append(Point(x:red+40, y:240))
 
+    // draw the parallogram
 canvas.drawCustomShape(with: verticesMid)
 
 }
 
-// text
+// draw the title subhumans
 canvas.textColor =  Color(hue: 100, saturation: 100, brightness: 0, alpha: 100)
 canvas.drawText(message: "subhumans", at: Point(x:10, y:325), size: 45)
+
+// draw the paragraph text
+canvas.drawText(message: "friday, april 13 1984" + "\n" + , at: Point(x:10, y:325), size: 45)
 /*:
  ## Use Source Control
  

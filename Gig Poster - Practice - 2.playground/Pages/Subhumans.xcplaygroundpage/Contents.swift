@@ -97,7 +97,11 @@ canvas.textColor =  Color(hue: 100, saturation: 100, brightness: 0, alpha: 100)
 canvas.drawText(message: "subhumans", at: Point(x:10, y:325), size: 45)
 
 // draw the paragraph text
-canvas.drawText(message: "friday, april 13 1984" + "\n" + , at: Point(x:10, y:325), size: 45)
+canvas.drawText(message: "friday, april 13 1984" + "\n" + "advance $6.50, door $7.50" + "\n" + "no age limit", at: Point(x:15, y:440), size: 10)
+
+canvas.drawText(message: "at olympic auditorium" + "\n" + "1801 s.grand ave." + "\n" + "los angeles, california", at: Point(x:150, y:440), size: 10)
+
+canvas.drawText(message: "with the tourists" + "\n" + "multi death corporations" + "\n" + "new regime & red scare", at: Point(x:275, y:440), size: 10)
 /*:
  ## Use Source Control
  
